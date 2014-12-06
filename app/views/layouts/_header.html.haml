@@ -1,0 +1,62 @@
+%header
+  .grey_line
+    .container
+      .top_menu
+        %ul
+          %li
+            %a{:href => "/"} Home
+          %li
+            %a{:href => "#"} Contact
+          %li
+            %a{:href => "#"} About
+          %li
+            %a{:href => "#"} Sitemap
+      .lang
+        %i &nbsp;
+        %span
+          EN
+          %a{:href => "#"}
+            = image_tag('lang_arrow.png')
+        .profile
+          %p
+            = image_tag('ic_blue_use.png')
+          %span
+            %a{:href => "#"}
+              = image_tag('lang_arrow.png')
+  .logo
+    .container
+      .logo_left
+        %a{:href => "#"}
+          = image_tag('logo.png')
+      .search
+        %input{:placeholder => "search by part number", :type => "", :value => ""}/
+        %a{:href => "#"}
+          = image_tag('ic_search.png')
+
+.clear
+%nav
+  .container
+    %ul
+      %li
+        %a{:href => "/"}
+          = image_tag('ic_home.png')
+          %span Home
+      %li
+        - if user_signed_in?
+          = link_to 'Log Out', destroy_user_session_path, :method =>"delete"
+      -#%li
+      -#  %a{:href => "#"}
+      -#    = image_tag('ic_cart.png')
+      -#    %span Shopping Cart
+      -#%li
+      -#  %a{:href => "#"}
+      -#    = image_tag('ic_accont_info.png')
+      -#    %span Account Info
+      -#%li
+      -#  %a{:href => "#"}
+      -#    = image_tag('ic_fav.png')
+      -#    %span Favorite List
+      -#%li
+      -#  %a{:href => "#"}
+      -#    = image_tag('ic_cal.png')
+      -#    %span Cycle ValuE Calculators

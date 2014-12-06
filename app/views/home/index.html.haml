@@ -1,0 +1,69 @@
+%table.main_table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+  %tr
+    %td
+      = render "alert"
+
+  %tr
+    %td
+      = render "search"
+
+:javascript
+  $(function () {
+      var interval;
+      $('.add').on('mousedown',function(e) {
+          var $this = $(this);
+      interval = setInterval(function() {
+          debugger
+        var $qty=$this.parent().parent().find('.qty');
+          var currentVal = parseInt($qty.val());
+          if (!isNaN(currentVal)) {
+              if(currentVal<99){
+              $qty.val(currentVal + 1);
+              }
+          }else{
+          $qty.val(0);
+          }
+      },400);
+  }).on('mouseup',function(e) {
+      clearInterval(interval);
+  });
+      $('.minus').on('click',function(){
+
+      }).on('mousedown',function(e) {
+           var $this = $(this);
+      interval = setInterval(function() {
+        var $qty= $this.parent().parent().find('.qty');
+          var currentVal = parseInt($qty.val());
+          if (!isNaN(currentVal) && currentVal > 0) {
+              $qty.val(currentVal - 1);
+          }
+      },400);
+  }).on('mouseup',function(e) {
+      clearInterval(interval);
+  });
+   $('.add').on('click',function(){
+           var $qty=$(this).closest('li').find('.qty');
+           var currentVal = parseInt($qty.val());
+           if (!isNaN(currentVal)) {
+               if(currentVal<99){
+               $qty.val(currentVal + 1);
+               }
+           }
+           else{
+            $qty.val(0);
+           }
+       });
+       $('.minus').on('click',function(){
+           var $qty=$(this).closest('li').find('.qty');
+           var currentVal = parseInt($qty.val());
+           if (!isNaN(currentVal) && currentVal > 0) {
+               $qty.val(currentVal - 1);
+           }
+       });
+  });
+  function isNumberKey(evt){
+      var charCode = (evt.which) ? evt.which : event.keyCode
+      if (charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+      return true;
+  }

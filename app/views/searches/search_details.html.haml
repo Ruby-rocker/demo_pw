@@ -1,0 +1,16 @@
+%h1 Search Details
+
+%table
+  %tr
+    %th Part Number
+    %th Engine Number
+    %th CLL
+
+  - @part_masters.each do |part_master|
+    %tr
+      %td
+        = part_master.part_detail_id
+      %td
+        = part_master.engine_id
+      %td
+        = number_to_currency(part_master.cll)

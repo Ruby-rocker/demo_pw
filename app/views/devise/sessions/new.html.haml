@@ -1,0 +1,31 @@
+.main_login
+  %h1 Login
+  .login_box
+    .login_form
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .block
+          = image_tag("ic_user.png")
+          = f.email_field :email, autofocus: true, :placeholder => "Username", class: :input
+        .block
+          = image_tag("ic_pwd.png")
+          = f.password_field :password, autocomplete: "off", :placeholder => "************", class: :input
+        .clear
+          = f.submit "SIGN IN", class: :submit_bt
+        %a.forget_pwd{:href => "#"} Fotgot Password
+        = link_to 'Sign up now', new_user_registration_path, class: :signup
+        -#%a.signup{:href => "#"} Sign up now
+  -#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  -#  %div
+  -#    = f.label :email
+  -#    %br/
+  -#    = f.email_field :email, autofocus: true
+  -#  %div
+  -#    = f.label :password
+  -#    %br/
+  -#    = f.password_field :password, autocomplete: "off"
+  -#  - if devise_mapping.rememberable?
+  -#    %div
+  -#      = f.check_box :remember_me
+  -#      = f.label :remember_me
+  -#  %div= f.submit "Log in"
+  -#= render "devise/shared/links"

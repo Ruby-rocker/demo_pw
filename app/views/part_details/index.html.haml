@@ -1,0 +1,19 @@
+%h1 Part Details
+
+%table
+  %tr
+    %th Part Number
+    %th Description
+    %th CLP
+    %th Part Id
+
+  - @part_details.each do |part|
+    %tr
+      %td
+        = part.part_number
+      %td
+        = part.description
+      %td
+        = number_to_currency(part.clp)
+      %td
+        = part.part_id

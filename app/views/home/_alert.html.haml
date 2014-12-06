@@ -1,0 +1,117 @@
+= form_for :home, :html=>{:id=>'frm1'}do |f|
+  %table.table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tr
+      %td
+        %h1
+          Current Year Forecast Alerts
+          %a{:href => "#"}
+            = image_tag('down_white_arrow.png')
+        .table_data
+          %ul
+            %li
+              %label Engine Model :
+              = f.collection_select :engine_id, Engine.order(:engine_number),:id,:engine_number, :prompt => "Select Engine"
+            %li
+              %label Cycle Remaining :
+              %input{:placeholder => "type here", :type => ""}
+            %li
+              %label Attach Disk Sheet(s) :
+              %input{:placeholder => "browse", :type => "file"}
+          .clear
+          .alert_box
+            .alert_left
+              %ul
+                %li
+                  %h1 Jan
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m1',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Feb
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m2',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Mar
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m3',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Apr
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m4',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 May
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m5',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Jun
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m6',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Jul
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m7',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Aug
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m8',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Sep
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m9',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Oct
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m10',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Nov
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m11',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+                %li
+                  %h1 Dec
+                  .cal_up_arrow
+                    = image_tag('cal_up_arrow.png', :class=>'add')
+                  %input{:type => "", :value => "0",:maxlength=>2, :class=>'qty', :id=>'m12',:onkeypress=>"return isNumberKey(event)"}
+                  .cal_down_arrow
+                    = image_tag('cal_down_arrow.png', :class=>'minus')
+            .alert_right
+              .alert_frequency
+                %label Alert Frequency :
+                = f.collection_select :frequency_id, Frequency.order(:id),:id,:frequency_type, :prompt => "Select Alert Frequency", :class=>'margin_bottom_none'
+                -#%select{:name => ""}
+                -#  %option
+                -#  %option weekly
+                -#  %option bi weekly
+                -#  %option monthly
+              %input.blue_bt{:name => "", :type => "submit", :value => "SET ALERT"}

@@ -1,0 +1,13 @@
+%h1 Engines
+
+%table
+  %tr
+    %th Engine Number
+    %th CLL Number
+
+  - @engines.each do |engine|
+    %tr
+      %td
+        = engine.engine_number
+      %td
+        = engine.cll_no

@@ -1,0 +1,8 @@
+class SearchController < ApplicationController
+
+
+private
+  def search_params
+  params.require(:search).permit(:engine_id,:part_id,:search_name,:frequency_id)
+  end
+end

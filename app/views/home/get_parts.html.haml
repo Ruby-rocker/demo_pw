@@ -1,0 +1,2 @@
+%label Part No :
+= select(:search, :part_id, options_from_collection_for_select(@parts, :id, :part_number),{:prompt => "Select"})

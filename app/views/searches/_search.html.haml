@@ -1,0 +1,91 @@
+= form_for :search,:url =>{:controller => :searches, :action => :search_details},:html=>{:id=>'srchfrm1'}do |f|
+  %tr
+    %td
+      %h1
+        Search
+        %a{:href => "#"}
+          = image_tag('down_white_arrow.png')
+      .search_table
+        .table_data
+          %ul
+            %li
+              %label Engine Model :
+              = f.collection_select :engine_id, Engine.order(:engine_number),:id,:engine_number, :prompt => "Select Engine"
+            %li
+              %label Part No :
+              = f.collection_select :part_id, PartDetail.all,:id,:part_number, :prompt => "Select Part"
+            %li
+              %label Tag By :
+              %select{:name => ""}
+                %option Select
+                %option 2
+                %option 3
+                %option 4
+                %option 5
+          .clear
+          %ul
+            %li
+              %label Cert Source :
+              %select{:name => ""}
+                %option Select
+                %option 2
+                %option 3
+                %option 4
+                %option 5
+            %li
+              %label Condition :
+              %select{:name => ""}
+                %option Select
+                %option 2
+                %option 3
+                %option 4
+                %option 5
+            %li
+              %label Tag Date :
+              %select
+                %option Select
+                %option 2
+                %option 3
+                %option 4
+                %option 5
+          .clear
+          %ul
+            %li
+              %label Cycle Remaining :
+              %select.margin_bottom_none
+                %option Select
+                %option 2
+                %option 3
+                %option 4
+                %option 5
+            %li
+              %label Company Name :
+              %select.margin_bottom_none{:name => ""}
+                %option Select
+                %option 2
+                %option 3
+                %option 4
+                %option 5
+            %li
+              %input.blue_bt.search_btn.margin_bottom_none{:name => "", :type => "submit", :value => "SEARCH"}
+        .clear
+        .save_search
+          %h2
+            Save Search
+            %a{:href => "#"}
+              = image_tag('down_grey_arrow.png')
+          .table_data.offwhite_bg
+            %ul
+              %li
+                %label Name :
+                %input.margin_bottom_none{:placeholder => "name saved search", :type => ""}
+              %li
+                %label Alert Frequency:
+                %select.margin_bottom_none{:name => ""}
+                  %option alert frequency
+                  %option 2
+                  %option 3
+                  %option 4
+                  %option 5
+              %li
+                %input.blue_bt.search_btn.margin_bottom_none{:name => "", :type => "submit", :value => "SAVE SEARCH"}
